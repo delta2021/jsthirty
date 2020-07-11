@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Kit</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <div class="key-container">
+            <div class="key"  v-for="(element) in sounds" :id="keyId(element.key)">
+                <span class="key__letter">{{element.key}}</span>
+                <span class="key__desc">{{element.sound}}</span>
+            </div>
+        </div>
+
+        <template>
+            <audio v-for="(element) in sounds" :src="getSoundsUrl(element.fileName)" :id="audioId(element.key)"></audio>
+        </template>
+    </div>
+
+   
+
+
+      
+
+
+    <script src="main.js"></script>
+</body>
+</html>
