@@ -39,6 +39,13 @@ new Vue({
             setTimeout(()=> {
                 key.classList.remove('playing');
             }, 100)
+        },
+
+        drumClick(e){
+            let keyId = '#' + e.currentTarget.id; 
+            let soundId = '#audio-' + e.currentTarget.id[e.currentTarget.id.length-1];
+            this.playSound(soundId);
+            this.animateKey(keyId);
         }
     }
 })

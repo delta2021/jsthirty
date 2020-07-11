@@ -11,7 +11,7 @@
     
     <div id="app">
         <div class="key-container">
-            <div class="key"  v-for="(element) in sounds" :id="keyId(element.key)">
+            <div class="key"  v-for="(element) in sounds" :id="keyId(element.key)" @click.stop="drumClick">
                 <span class="key__letter">{{element.key}}</span>
                 <span class="key__desc">{{element.sound}}</span>
             </div>
