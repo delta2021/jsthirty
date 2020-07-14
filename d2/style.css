@@ -39,6 +39,14 @@ body {
     left: 50%;
     top: 50%;
     transform-origin: 0%;
+ 
+    
+    transform: rotate(-90deg); 
+}
+
+.hand--transition {
+    transition: all .05s;
+    transition-timing-function: cubic-bezier(0.32, 1.66, 0.4, 1.9);
 }
 
 .clock__hand--h {

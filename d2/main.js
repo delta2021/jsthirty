@@ -1,29 +1,35 @@
 const hour = document.querySelector('#hour-hand');
 const minute = document.querySelector('#minute-hand');
 const second = document.querySelector('#second-hand');
+const hands = document.querySelectorAll('.clock__hand');
 
-let s = 0;
-let m = 0;
-let h = 0;
+function setTime(){
+    const now = new Date();
+    let seconds = now.getSeconds();
+    let minutes = now.getMinutes();
+    let hours = now.getHours();
+    let sDegree;
+    let mDegree;
+    let hDegree;
 
-const initialTime = 3 * 3600 + 15 * 60 + 15;  
-const currentTime = new Date();
-const currentSeconds = currentTime.getSeconds() + currentTime.getHours() % 12 * 3600 + currentTime.getMinutes()*60;
+    hands.forEach(hand => {
+        hand.classList.add('hand--transition');
+    })
 
-h = (currentSeconds - initialTime) * 0.008;
-m = (currentSeconds - initialTime) * 0.1;
-s = (currentSeconds - initialTime) * 6;
+    if (seconds === 0) second.classList.remove('hand--transition');
+    if (minutes === 0) minute.classList.remove('hand--transition');
+    if (hours === 0) hour.classList.remove('hand--transition');
+    
 
-hour.style.transform = `rotate(${h}deg)`;
-second.style.transform = `rotate(${s}deg)`;
-minute.style.transform = `rotate(${m}deg)`;
+    sDegree = (seconds / 60) * 360 - 90;
+    mDegree = (minutes / 60) * 360 - 90;
+    hDegree = (hours % 12 / 12) * 360 - 90;
+   
+    second.style.transform= `rotate(${sDegree}deg)`;
+    minute.style.transform= `rotate(${mDegree}deg)`;
+    hour.style.transform= `rotate(${hDegree}deg)`;
+}
 
-setInterval(() => {
-    s += 6;
-    m = (Number(m) + 0.1).toFixed(2) ; 
-    h = (Number(h) + 0.008).toFixed(3);
-    second.style.transform = `rotate(${s}deg)`
-    minute.style.transform = `rotate(${m}deg)`
-    hour.style.transform = `rotate(${h}deg)`
-}, 1000)
+
+setInterval(setTime, 1000)
 
