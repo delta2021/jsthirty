@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update CSS Variable with JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Update CSS Variable with <span class="highlight">JS</span></h1>
+        <div class="controls" id="controls">
+            <label for="">Spacing:</label>
+            <input type="range" name="spacing" id="" min="0" max="30" value="10" data-unit="px">
+            <label>Blur:</label>
+            <input type="range" name="blur" min="0" max="30" value="5" id="" data-unit="px">
+            <label for="">Base Color: </label>
+            <input type="color" name="color-base" id="" value="#fecb89">
+        </div>
+
+        <div class="image-container">
+            <img class="image" src="imgs/pic1.jpg" alt="">
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

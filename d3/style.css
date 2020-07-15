@@ -1,0 +1,46 @@
+:root {
+    --color-dark-blue: #204051;
+    --color-white: #fff;
+    --color-base: #fecb89;
+    --spacing: 10px;
+    --blur: 5px;
+}
+
+body {
+    background-color: var(--color-dark-blue);
+    color: var(--color-white)
+}
+
+.container {
+
+    width: 99%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px auto;
+    
+}
+
+.heading {
+    text-align: center;
+}
+
+.highlight {
+    color: var(--color-base);
+}
+
+
+.image-container {
+    width: fit-content;
+    margin-top: 25px;
+    padding: var(--spacing);
+    background-color: var(--color-base);
+    /* 消除空白 */
+    font-size: 0; 
+}
+
+
+.image {
+    width: 500px;
+    filter: blur(var(--blur));
+}
